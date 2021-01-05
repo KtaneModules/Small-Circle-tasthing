@@ -129,7 +129,7 @@ public class smallCircle : MonoBehaviour
             shift = rnd.Range(1, 9);
             Debug.LogFormat("[Small Circle #{0}] The sequence is shifted by {1}.", moduleId, shift);
             tableColor = wedgeColors[0];
-            wedgeColors = Shift(wedgeColors, !isCcw ? shift : 8 - shift);
+            wedgeColors = Shift(wedgeColors, isCcw ? shift : 8 - shift);
             var str = table[shift - 1][tableColor];
             Debug.LogFormat("[Small Circle #{0}] Using rules: {1}", moduleId, str);
             for (int i = 0; i < 3; i++)
