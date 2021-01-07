@@ -378,13 +378,11 @@ public class smallCircle : MonoBehaviour
                     yield break;
             }
             var x = Array.IndexOf(wedgeColors, color);
-            var time = (int)bomb.GetTime();
-            yield return new WaitUntil(() => (int)bomb.GetTime() != time);
             for (int i = 0; i < 8; i++)
             {
                 wedges[x].OnInteract();
                 x = (x + 9) % 8;
-                yield return new WaitForSeconds(.1f);
+                yield return new WaitForSeconds(1f);
             }
         }
         else if (split.Length <= 3 && split.All(x => validColors.Contains(x)))

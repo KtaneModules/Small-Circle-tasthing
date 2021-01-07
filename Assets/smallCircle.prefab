@@ -3647,7 +3647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000010324036326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3673,7 +3673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000010397013576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3699,7 +3699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000010551176158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3879,7 +3879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000012129661610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3905,7 +3905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000012409902334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4159,7 +4159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000014206710862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4172,7 +4172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000014211459186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Transparent/Diffuse
+  - Legacy Shaders/Diffuse
 --- !u!114 &114000014257484062
 MonoBehaviour:
   m_ObjectHideFlags: 1
