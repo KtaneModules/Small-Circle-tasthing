@@ -170,7 +170,7 @@ public class smallCircle : MonoBehaviour
                         break;
                     case 'F':
                         if (i == 0)
-                            solution[i] = 6;
+                            solution[i] = 4;
                         else
                             solution[i] = !solution.Take(substage).Contains(5) ? 4 : 6;
                         break;
