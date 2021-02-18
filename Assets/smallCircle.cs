@@ -165,14 +165,18 @@ public class smallCircle : MonoBehaviour
                     case 'E':
                         if (i == 0)
                             solution[i] = 7;
-                        else
-                            solution[i] = solution.Take(substage).Contains(4) ? 1 : 7;
+                        else if (i == 1)
+                            solution[i] = solution[0] == 4 ? 1 : 7;
+                        else if (i == 2)
+                            solution[i] = solution[0] == 4 || solution[1] == 4 ? 1 : 7;
                         break;
                     case 'F':
                         if (i == 0)
                             solution[i] = 4;
-                        else
-                            solution[i] = !solution.Take(substage).Contains(5) ? 4 : 6;
+                        else if (i == 1)
+                            solution[i] = solution[0] == 5 ? 6 : 4;
+                        else if (i == 2)
+                            solution[i] = solution[0] == 5 || solution[1] == 5 ? 6 : 4;
                         break;
                     case 'G':
                         solution[i] = (Adjacent(6, 0) || Adjacent(6, 2) || Adjacent(6, 4)) ? 2 : 5;
