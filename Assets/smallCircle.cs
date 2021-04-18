@@ -160,6 +160,7 @@ public class smallCircle : MonoBehaviour
                             }
                             distances.Add(count);
                         }
+                        distances.Select(x => x--);
                         solution[i] = distances.Min() < bomb.GetBatteryCount() ? 6 : 2;
                         break;
                     case 'E':
@@ -195,6 +196,7 @@ public class smallCircle : MonoBehaviour
                             }
                             distances1.Add(count);
                         }
+                        distances1.Select(x => x--);
                         solution[i] = distances1.Max() > bomb.GetSerialNumberNumbers().Last() ? 0 : 3;
                         break;
                     default:

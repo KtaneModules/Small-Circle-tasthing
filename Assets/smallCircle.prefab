@@ -3780,7 +3780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModuleType: smallCircle
   ModuleDisplayName: Small Circle
-  RequiresTimerVisibility: 0
+  RequiresTimerVisibility: 1
 --- !u!114 &114000011235468186
 MonoBehaviour:
   m_ObjectHideFlags: 1
