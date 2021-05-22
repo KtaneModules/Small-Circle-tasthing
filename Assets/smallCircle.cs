@@ -147,21 +147,26 @@ public class smallCircle : MonoBehaviour
                         solution[i] = (!Adjacent(2, 1) && !Adjacent(2, 3) && !Adjacent(2, 5)) ? 7 : 1;
                         break;
                     case 'D':
-                        var distances = new List<int>();
-                        var offsets = new int[] { 1, -1 };
-                        for (int j = 0; j < 2; j++)
+                        var distanceD = Math.Abs(Array.IndexOf(wedgeColors, tableColor) - Array.IndexOf(wedgeColors, 3));
+                        switch (distanceD)
                         {
-                            var x = Array.IndexOf(wedgeColors, tableColor);
-                            var count = 0;
-                            while (x != Array.IndexOf(wedgeColors, 3))
-                            {
-                                x = (x + 8 + offsets[j]) % 8;
-                                count++;
-                            }
-                            distances.Add(count);
+                            case 7:
+                            case 1:
+                                distanceD = 0;
+                                break;
+                            case 6:
+                            case 2:
+                                distanceD = 1;
+                                break;
+                            case 5:
+                            case 3:
+                                distanceD = 2;
+                                break;
+                            case 4:
+                                distanceD = 3;
+                                break;
                         }
-                        distances.Select(x => x--);
-                        solution[i] = distances.Min() < bomb.GetBatteryCount() ? 6 : 2;
+                        solution[i] = distanceD < bomb.GetBatteryCount() ? 6 : 2;
                         break;
                     case 'E':
                         if (i == 0)
@@ -183,21 +188,26 @@ public class smallCircle : MonoBehaviour
                         solution[i] = (Adjacent(6, 0) || Adjacent(6, 2) || Adjacent(6, 4)) ? 2 : 5;
                         break;
                     case 'H':
-                        var distances1 = new List<int>();
-                        var offsets1 = new int[] { 1, -1 };
-                        for (int j = 0; j < 2; j++)
+                        var distanceH = Math.Abs(Array.IndexOf(wedgeColors, tableColor) - Array.IndexOf(wedgeColors, 7));
+                        switch (distanceH)
                         {
-                            var x = Array.IndexOf(wedgeColors, tableColor);
-                            var count = 0;
-                            while (x != Array.IndexOf(wedgeColors, 7))
-                            {
-                                x = (x + 8 + offsets1[j]) % 8;
-                                count++;
-                            }
-                            distances1.Add(count);
+                            case 7:
+                            case 1:
+                                distanceH = 6;
+                                break;
+                            case 6:
+                            case 2:
+                                distanceH = 5;
+                                break;
+                            case 5:
+                            case 3:
+                                distanceH = 4;
+                                break;
+                            case 4:
+                                distanceH = 3;
+                                break;
                         }
-                        distances1.Select(x => x--);
-                        solution[i] = distances1.Max() > bomb.GetSerialNumberNumbers().Last() ? 0 : 3;
+                        solution[i] = distanceH > bomb.GetSerialNumberNumbers().Last() ? 0 : 3;
                         break;
                     default:
                         throw new InvalidOperationException("Unexpected value in the rules.");
