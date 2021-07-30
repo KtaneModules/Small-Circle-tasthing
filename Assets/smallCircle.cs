@@ -19,6 +19,7 @@ public class smallCircle : MonoBehaviour
     public Color[] colors;
     public Color gray;
     public Transform circle;
+    public TextMesh colorblindText;
 
     private bool stage2;
     private int[] wedgeColors = new int[8];
@@ -59,9 +60,12 @@ public class smallCircle : MonoBehaviour
         {
             wedge.OnInteract += delegate () { PressWedge(wedge); return false; };
             wedge.OnInteractEnded += delegate () { ReleaseWedge(wedge); };
+            wedge.OnHighlight += delegate () { colorblindText.text = "ROYGBMWK"[wedgeColors[Array.IndexOf(wedges, wedge)]].ToString(); };
+            wedge.OnHighlightEnded += delegate () { colorblindText.text = ""; };
         }
         reset.OnInteract += delegate () { PressReset(); return false; };
         isCcw = rnd.Range(0, 2) == 0;
+        colorblindText.gameObject.SetActive(GetComponent<KMColorblindMode>().ColorblindModeActive);
     }
 
     private void Start()
@@ -102,6 +106,7 @@ public class smallCircle : MonoBehaviour
                 module.HandlePass();
                 moduleSolved = true;
                 Debug.LogFormat("[Small Circle #{0}] Module solved!", moduleId);
+                colorblindText.gameObject.SetActive(false);
                 for (int i = 0; i < 8; i++)
                     fadingAnimations[i] = StartCoroutine(FadeColor(wedgeRenders[i], wedgeRenders[i].material.color, gray, 2.5f));
                 StartCoroutine(SlowDownCircle());
@@ -220,12 +225,14 @@ public class smallCircle : MonoBehaviour
 
     private IEnumerator StageTwo()
     {
+        colorblindText.gameObject.SetActive(false);
         foreach (Renderer wedge in wedgeRenders)
             fadingAnimations[Array.IndexOf(wedgeRenders, wedge)] = StartCoroutine(FadeColor(wedge, wedge.material.color, gray, 1f));
         yield return new WaitUntil(() => !fading.Contains(true));
         yield return new WaitForSeconds(.5f);
         foreach (Renderer wedge in wedgeRenders)
             fadingAnimations[Array.IndexOf(wedgeRenders, wedge)] = StartCoroutine(FadeColor(wedge, gray, colors[wedgeColors[Array.IndexOf(wedgeRenders, wedge)]], 1f));
+        colorblindText.gameObject.SetActive(GetComponent<KMColorblindMode>().ColorblindModeActive);
     }
 
     private void PressReset()
@@ -471,7 +478,7 @@ public class smallCircle : MonoBehaviour
         wedges[0].OnInteract();
         yield return new WaitUntil(() => (int)bomb.GetTime() != time);
         wedges[0].OnInteractEnded();
-        startStage2:
+    startStage2:
         while (!moduleSolved)
         {
             wedges[Array.IndexOf(wedgeColors, solution[substage])].OnInteract();
