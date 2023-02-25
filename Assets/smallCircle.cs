@@ -402,9 +402,10 @@ public class smallCircle : MonoBehaviour
             }
             var x = Array.IndexOf(wedgeColors, color);
             for (int i = 0; i < 8; i++)
-            {
+            {   
                 wedges[x].OnInteract();
                 x = (x + 9) % 8;
+                yield return "trycancel";
                 yield return new WaitForSeconds(1f);
             }
         }
