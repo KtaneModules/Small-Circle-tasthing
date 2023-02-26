@@ -211,6 +211,9 @@ public class smallCircle : MonoBehaviour
                             case 4:
                                 distanceH = 3;
                                 break;
+                            case 0:
+                                distanceH = 7;
+                                break;
                         }
                         solution[i] = distanceH > bomb.GetSerialNumberNumbers().Last() ? 0 : 3;
                         break;
